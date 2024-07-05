@@ -8,8 +8,8 @@
 
 </head>
 <body>
-<p class="events" id="Events"></p>
-<p>
+	<p class="events" id="Events"></p>
+<div class="buttoncontainer">
 	<button onclick="showAttacks()" id="Attack">Attack</button>
 	<button onclick="slice()" id="Slice" >Slice</button>
 	<button onclick="spin()" id="Spin">Spin</button>
@@ -18,10 +18,12 @@
 	<button onclick="showMagic()" id="Magic">Magic</button>
 	<button onclick="hideAttacks()" id="Back">Back</button>
 	<button onclick="spawnMonster()" id="nextMonster">Next Enemy!</button>
-</p>
+</div>
 <p class="events" id="Stats"></p>
+<div class="buttoncontainer">
 <button onclick="saveGame()">Save Game</button>
 <button onclick="loadGame()">Load Game</button>
+</div>
 <p id="saveLoadStatus"></p>
 <p class="events" id="Debug"></p>
   <script src="roguelike.js"></script>

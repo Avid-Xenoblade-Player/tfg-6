@@ -48,10 +48,10 @@ function setCharacterStats() {
     Exc: ${tempexc} out of ${exc} <br>
     Atk: ${atk} <br>
     Def: ${def} <br>
-    Mat: ${mat} <br>
-    Mdf: ${mdf} <br>
     Spd: ${spd} <br>
     Eva: ${eva} <br>
+    Mat: ${mat} <br>
+    Mdf: ${mdf} <br>
     Acc: ${acc} <br>
 	 Exp: ${exp} <br>
 	 Lvl: ${lvl} <br>
@@ -68,7 +68,9 @@ setCharacterStats();
 function saveGame() {
         const gameData = {
           hp: hp,
+			 temphp: temphp,
           exc: exc,
+			 tempexc: tempexc,
           atk: atk,
           def: def,
           mat: mat,
@@ -89,7 +91,9 @@ function saveGame() {
 		  let confirm = prompt("Data | HP: " + hp + ". ATK: " + atk + ". LVL: " + lvl + ". Please type CONFIRM to load.");
 		  if (confirm == "CONFIRM" && savedData) { 
           hp = gameData.hp;
+			 temphp = gameData.temphp;
           exc = gameData.exc;
+			 tempexc = gameData.exc;
           atk = gameData.atk;
           def = gameData.def;
           mat = gameData.mat;
@@ -100,6 +104,20 @@ function saveGame() {
 			 exp = gameData.exp;
 			 lvl = gameData.lvl;
         document.getElementById("saveLoadStatus").innerHTML = "Game loaded successfully.";
+		  document.getElementById("Stats").innerHTML = `
+    		HP: ${temphp} out of ${hp} <br>
+    		Exc: ${tempexc} out of ${exc} <br>
+    		Atk: ${atk} <br>
+    		Def: ${def} <br>
+    		Spd: ${spd} <br>
+    		Eva: ${eva} <br>
+    		Mat: ${mat} <br>
+    		Mdf: ${mdf} <br>
+    		Acc: ${acc} <br>
+	 		Exp: ${exp} <br>
+	 		Lvl: ${lvl} <br>
+  `;
+
         }
 		}
 
@@ -119,6 +137,13 @@ function spawnMonster() {
   document.getElementById("Events").innerHTML = "A monster appears! <br>" + `
   	 HP: ${tempenhp} <br>
 	 Exc: ${tempenexc} <br>
+	 Atk: ${enatk} <br>
+	 Def: ${endef} <br>
+	 Spd: ${enspd} <br>
+	 Eva: ${eneva} <br>
+	 M Atk: ${enmat} <br>
+	 M Def: ${enmdf} <br>
+	 Acc: ${enacc}
   `;
 	}
 
@@ -164,6 +189,14 @@ function slice() {
 			document.getElementById("Events").innerHTML = "A monster appears! <br>" + `
   	 HP: ${tempenhp} out of ${enhp}. Dealt ${damage} damage. <br>
 	 Exc: ${tempenexc} <br>
+	 Atk: ${enatk} <br>
+	 Def: ${endef} <br>
+	 Spd: ${enspd} <br>
+	 Eva: ${eneva} <br>
+	 M Atk: ${enmat} <br>
+	 M Def: ${enmdf} <br>
+	 Acc: ${enacc}
+  
   `; 
   hideAttacks();
 		/*	} else if (playerSpeedCheck < enemySpeedCheck) {
@@ -172,6 +205,13 @@ function slice() {
 			document.getElementById("Events").innerHTML = "A monster appears! <br>" + `
 			HP: ${tempenhp} out of ${enhp}. Missed! <br>
 			Exc: ${tempenexc} <br>
+			Atk: ${enatk} <br>
+			Def: ${endef} <br>
+	 		Spd: ${enspd} <br>
+	 		Eva: ${eneva} <br>
+	 		M Atk: ${enmat} <br>
+	 		M Def: ${enmdf} <br>
+	 		Acc: ${enacc}
 	`;
 	hideAttacks();
 		}
@@ -216,7 +256,7 @@ function enemyMessage(temp, max) {
 	} else {
 		document.getElementById("Events").innerHTML = "Odd... this shouldn't appear. Please contact if it does.";
 	}
-}
+	}
 	
 /*
 const newButton = document.createElement('button');
